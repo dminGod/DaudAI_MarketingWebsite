@@ -1,14 +1,50 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Colors */
+  --color-brown-900: #3D2517;
+  --color-brown-800: #5C3D2E;
+  --color-brown-700: #7A5240;
+  --color-brown-600: #8B6347;
+  --color-brown-500: #A67B5B;
+
+  --color-orange-600: #C66A00;
+  --color-orange-500: #E07A00;
+  --color-orange-400: #F5921B;
+  --color-orange-300: #FFB347;
+  --color-orange-200: #FFCC80;
+  --color-orange-100: #FFE4C4;
+
+  /* Light mode */
+  --background: #FFFFFF;
+  --background-secondary: #FFF8F0;
+  --foreground: #3D2517;
+  --foreground-secondary: #5C3D2E;
+  --muted: #8B6347;
+  --border: #E8DDD4;
+  --card: #FFFFFF;
+  --card-hover: #FFF8F0;
+
+  /* Accent */
+  --accent: #E07A00;
+  --accent-hover: #C66A00;
+  --accent-light: #FFB347;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1A1210;
+    --background-secondary: #241C18;
+    --foreground: #F5EDE8;
+    --foreground-secondary: #D4C4B8;
+    --muted: #A89888;
+    --border: #3D3530;
+    --card: #241C18;
+    --card-hover: #2D2420;
+
+    --accent: #F5921B;
+    --accent-hover: #FFB347;
+    --accent-light: #FFB347;
   }
 }
 
@@ -16,4 +52,44 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Custom utility classes */
+.bg-gradient-brand {
+  background: linear-gradient(135deg, var(--color-orange-500) 0%, var(--color-orange-400) 50%, var(--color-orange-300) 100%);
+}
+
+.bg-gradient-brand-dark {
+  background: linear-gradient(135deg, var(--color-brown-800) 0%, var(--color-brown-700) 100%);
+}
+
+.text-gradient-brand {
+  background: linear-gradient(135deg, var(--color-orange-500) 0%, var(--color-orange-400) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-orange-200);
+  color: var(--color-brown-900);
+}
+
+@media (prefers-color-scheme: dark) {
+  ::selection {
+    background: var(--color-orange-500);
+    color: white;
+  }
 }
